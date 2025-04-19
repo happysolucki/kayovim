@@ -80,7 +80,7 @@
               # here it'll only work from this directory
               "~/dev/projects/kayovim/kayovim"
             ];
-            plugins = [ pkgs.vimPlugins.oil-nvim ];
+            plugins = [ pkgs.vimPlugins.oil-nvim pkgs.vimPlugins.everforest ];
           };
         }
       );
