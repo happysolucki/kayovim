@@ -69,21 +69,19 @@
             inherit (neovim-nightly.packages.${system}) neovim;
             appName = "kayovim";
             desktopEntry = false;
+            initLua = ''
+              require('kayovim')
+            '';
+            devExcludedPlugins = [
+              ./kayovim
+            ];
+            devPluginPaths = [
+              # This normally should be a absolute path
+              # here it'll only work from this directory
+              "~/dev/projects/kayovim/kayovim"
+            ];
+            plugins = [ pkgs.vimPlugins.oil-nvim ];
           };
-
-          initLua = ''
-            require('kayovim')
-          '';
-
-          # Add lua config
-          devExcludedPlugins = [
-            ./kayovim
-          ];
-
-          # Impure path to lua config for devShell
-          devPluginPaths = [
-            "/home/kayotune/dev/projects/kayovim/kayovim"
-          ];
         }
       );
     };
