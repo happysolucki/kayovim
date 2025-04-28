@@ -80,7 +80,18 @@
               # here it'll only work from this directory
               "~/dev/projects/kayovim/kayovim"
             ];
-            plugins = [ pkgs.vimPlugins.oil-nvim pkgs.vimPlugins.everforest ];
+            plugins = builtins.attrValues {
+              inherit (pkgs.vimPlugins)
+                oil-nvim
+                everforest
+                nvim-lspconfig
+                snacks-nvim
+                conform-nvim
+                ;
+            };
+            extraBinPath = builtins.attrValues {
+              inherit (pkgs) lua-language-server stylua nixfmt-rfc-style;
+            };
           };
         }
       );
