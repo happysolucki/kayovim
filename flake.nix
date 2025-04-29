@@ -90,7 +90,13 @@
                 ;
             };
             extraBinPath = builtins.attrValues {
-              inherit (pkgs) lua-language-server stylua nixfmt-rfc-style;
+              inherit (pkgs)
+                lua-language-server
+                vscode-langservers-extracted
+                efm-langserver
+                stylua
+                nixfmt-rfc-style
+                ;
             };
           };
         }
