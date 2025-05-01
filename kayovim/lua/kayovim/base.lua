@@ -24,6 +24,14 @@ vim.o.splitright = true
 vim.o.termguicolors = true
 vim.o.showmode = false
 
+require('lazydev').setup {
+  library = {
+    -- See the configuration section for more details
+    -- Load luvit types when the `vim.uv` word is found
+    { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+  },
+}
+
 -- Oil
 require('oil').setup {}
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = 'open parent directory' })

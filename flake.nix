@@ -82,11 +82,17 @@
             ];
             plugins = builtins.attrValues {
               inherit (pkgs.vimPlugins)
+                lazydev-nvim
+
+                blink-cmp
+
                 oil-nvim
                 everforest
                 nvim-lspconfig
                 snacks-nvim
                 conform-nvim
+
+                efmls-configs-nvim
                 ;
             };
             extraBinPath = builtins.attrValues {
@@ -96,6 +102,8 @@
                 efm-langserver
                 stylua
                 nixfmt-rfc-style
+                nixd
+                statix
                 ;
             };
           };
