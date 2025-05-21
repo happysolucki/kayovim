@@ -39,7 +39,7 @@
     }:
     let
       eachSystem = nixpkgs.lib.genAttrs (import systems);
-      # inherit (nixpkgs) lib;
+      inherit (nixpkgs) lib;
     in
     {
       devShells = eachSystem (
@@ -80,21 +80,60 @@
               # here it'll only work from this directory
               "~/dev/projects/kayovim/kayovim"
             ];
-            plugins = builtins.attrValues {
-              inherit (pkgs.vimPlugins)
-                lazydev-nvim
+            plugins = lib.mkMerge [
+              [
+                {
+                  # "pname" and "version"
+                  # or "name" is required
+                  # pname = "customPlugin";
+                  # version = "1";
 
-                blink-cmp
+                  name = "jellybeans-nvim";
 
-                oil-nvim
-                everforest
-                nvim-lspconfig
-                snacks-nvim
-                conform-nvim
+                  src = pkgs.fetchFromGitHub {
+                    owner = "WTFox";
+                    repo = "jellybeans.nvim";
+                    rev = "66ff0d401a1ac14d70527f8a2f0d7ecc739ec245";
+                    hash = "sha256-NQc5ddFHe5Kw3FuKAEdkYzuvktK/Dnv0SXsWr1JeXXU=";
+                  };
 
-                efmls-configs-nvim
-                ;
-            };
+                  # Plugins can have other plugins as dependencies
+                  # this is mainly used in nixpkgs
+                  # avoid it if possible
+                  dependencies = [ ];
+                }
+              ]
+              (builtins.attrValues {
+                inherit (pkgs.vimPlugins)
+                  lazydev-nvim
+
+                  blink-cmp
+
+                  oil-nvim
+                  everforest
+                  nvim-lspconfig
+                  snacks-nvim
+                  conform-nvim
+
+                  efmls-configs-nvim
+                  ;
+              })
+            ];
+            # plugins = builtins.attrValues {
+            #   inherit (pkgs.vimPlugins)
+            #     lazydev-nvim
+            #
+            #     blink-cmp
+            #
+            #     oil-nvim
+            #     everforest
+            #     nvim-lspconfig
+            #     snacks-nvim
+            #     conform-nvim
+            #
+            #     efmls-configs-nvim
+            #     ;
+            # };
             extraBinPath = builtins.attrValues {
               inherit (pkgs)
                 lua-language-server
