@@ -40,6 +40,7 @@ vim.lsp.enable 'lua_ls'
 vim.lsp.enable 'eslint'
 vim.lsp.enable 'efm'
 vim.lsp.enable 'nixd'
+vim.lsp.enable 'vtsls'
 
 local lsp_fmt_group = vim.api.nvim_create_augroup('LspFormattingGroup', {})
 vim.api.nvim_create_autocmd('BufWritePost', {

@@ -143,6 +143,7 @@
                 nixfmt-rfc-style
                 nixd
                 statix
+                vtsls
                 ;
             };
           };
