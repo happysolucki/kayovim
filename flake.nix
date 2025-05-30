@@ -114,6 +114,7 @@
                   nvim-lspconfig
                   snacks-nvim
                   conform-nvim
+                  vim-sleuth
 
                   efmls-configs-nvim
                   ;
