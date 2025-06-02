@@ -104,6 +104,11 @@
                 }
               ]
               (builtins.attrValues {
+                inherit (pkgs.vimPlugins.nvim-treesitter)
+                  withAllGrammars
+                  ;
+              })
+              (builtins.attrValues {
                 inherit (pkgs.vimPlugins)
                   lazydev-nvim
 
@@ -112,6 +117,9 @@
                   oil-nvim
                   everforest
                   nvim-lspconfig
+                  nvim-treesitter
+                  nvim-treesitter-context
+                  nvim-treesitter-textobjects
                   snacks-nvim
                   conform-nvim
                   vim-sleuth
