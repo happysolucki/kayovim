@@ -36,11 +36,7 @@ require('lazydev').setup {
 require('oil').setup {}
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = 'open parent directory' })
 
--- Snacks
-local Snacks = require 'snacks'
-vim.keymap.set('n', '<leader><leader>', function()
-  Snacks.picker.smart()
-end, { silent = true, desc = 'smart find' })
-vim.keymap.set('n', '<leader>fg', function()
-  Snacks.picker.grep()
-end, { silent = true, desc = 'find grep' })
+-- FzfLua
+vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<cr>', { silent = true, desc = 'Find files' })
+vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua live_grep<cr>', { silent = true, desc = 'Grep' })
+

@@ -121,7 +121,6 @@
                   nvim-treesitter
                   nvim-treesitter-context
                   nvim-treesitter-textobjects
-                  snacks-nvim
                   conform-nvim
                   vim-sleuth
 
