@@ -121,7 +121,6 @@
                   nvim-treesitter
                   nvim-treesitter-context
                   nvim-treesitter-textobjects
-                  conform-nvim
                   vim-sleuth
 
                   efmls-configs-nvim
