@@ -114,6 +114,7 @@
 
                   blink-cmp
 
+                  fzf-lua
                   oil-nvim
                   everforest
                   nvim-lspconfig
@@ -128,21 +129,6 @@
                   ;
               })
             ];
-            # plugins = builtins.attrValues {
-            #   inherit (pkgs.vimPlugins)
-            #     lazydev-nvim
-            #
-            #     blink-cmp
-            #
-            #     oil-nvim
-            #     everforest
-            #     nvim-lspconfig
-            #     snacks-nvim
-            #     conform-nvim
-            #
-            #     efmls-configs-nvim
-            #     ;
-            # };
             extraBinPath = builtins.attrValues {
               inherit (pkgs)
                 lua-language-server
@@ -153,6 +139,8 @@
                 nixd
                 statix
                 vtsls
+
+                fzf
                 ;
             };
           };
