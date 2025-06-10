@@ -83,11 +83,6 @@
             plugins = lib.mkMerge [
               [
                 {
-                  # "pname" and "version"
-                  # or "name" is required
-                  # pname = "customPlugin";
-                  # version = "1";
-
                   name = "jellybeans-nvim";
 
                   src = pkgs.fetchFromGitHub {
@@ -97,9 +92,6 @@
                     hash = "sha256-NQc5ddFHe5Kw3FuKAEdkYzuvktK/Dnv0SXsWr1JeXXU=";
                   };
 
-                  # Plugins can have other plugins as dependencies
-                  # this is mainly used in nixpkgs
-                  # avoid it if possible
                   dependencies = [ ];
                 }
               ]
@@ -113,6 +105,7 @@
                   lazydev-nvim
 
                   blink-cmp
+                  smear-cursor-nvim
 
                   fzf-lua
                   oil-nvim

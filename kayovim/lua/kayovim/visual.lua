@@ -18,3 +18,5 @@ vim.api.nvim_create_autocmd('UILeave', {
     io.write '\027]111\027\\'
   end,
 })
+
+require('smear_cursor').setup {}
