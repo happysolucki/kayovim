@@ -104,12 +104,16 @@
                 inherit (pkgs.vimPlugins)
                   lazydev-nvim
 
+                  mini-icons
+                  mini-files
+                  mini-pick
+                  mini-statusline
+
                   blink-cmp
                   smear-cursor-nvim
 
-                  fzf-lua
-                  oil-nvim
                   everforest
+                  catppuccin-nvim
                   nvim-lspconfig
                   nvim-treesitter
                   nvim-treesitter-context

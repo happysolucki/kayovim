@@ -32,11 +32,17 @@ require('lazydev').setup {
   },
 }
 
--- Oil
-require('oil').setup {}
-vim.keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = 'open parent directory' })
+require('mini.icons').setup {}
+require('mini.files').setup {}
+require('mini.pick').setup {}
+require('mini.statusline').setup {}
 
--- FzfLua
-vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<cr>', { silent = true, desc = 'Find files' })
-vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua live_grep<cr>', { silent = true, desc = 'Grep' })
+local minifiles_toggle = function(...)
+  if not MiniFiles.close() then
+    MiniFiles.open(...)
+  end
+end
 
+vim.keymap.set('n', '-', minifiles_toggle, { silent = true, desc = 'Open file explorer' })
+vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>', { silent = true, desc = 'Find files' })
+vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<cr>', { silent = true, desc = 'Grep' })
