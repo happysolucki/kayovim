@@ -43,6 +43,8 @@ local minifiles_toggle = function(...)
   end
 end
 
-vim.keymap.set('n', '-', minifiles_toggle, { silent = true, desc = 'Open file explorer' })
+vim.keymap.set('n', '-', function()
+  minifiles_toggle(vim.api.nvim_buf_get_name(0))
+end, { silent = true, desc = 'Open file explorer' })
 vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>', { silent = true, desc = 'Find files' })
 vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<cr>', { silent = true, desc = 'Grep' })
