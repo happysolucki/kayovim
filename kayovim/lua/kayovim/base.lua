@@ -24,6 +24,8 @@ vim.o.splitright = true
 vim.o.termguicolors = true
 vim.o.showmode = false
 
+vim.o.clipboard = 'unnamedplus'
+
 require('lazydev').setup {
   library = {
     -- See the configuration section for more details
@@ -48,3 +50,4 @@ vim.keymap.set('n', '-', function()
 end, { silent = true, desc = 'Open file explorer' })
 vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>', { silent = true, desc = 'Find files' })
 vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<cr>', { silent = true, desc = 'Grep' })
+
