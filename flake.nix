@@ -108,6 +108,7 @@
                   mini-files
                   mini-pick
                   mini-statusline
+                  mini-extra
 
                   blink-cmp
                   smear-cursor-nvim
