@@ -50,4 +50,4 @@ vim.keymap.set('n', '-', function()
 end, { silent = true, desc = 'Open file explorer' })
 vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>', { silent = true, desc = 'Find files' })
 vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<cr>', { silent = true, desc = 'Grep' })
-
+vim.keymap.set('n', '<leader>f<', '<cmd>Pick resume<cr>', { silent = true, desc = 'Resume last search' })

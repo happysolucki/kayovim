@@ -72,59 +72,72 @@
             initLua = ''
               require('kayovim')
             '';
-            devExcludedPlugins = [
-              ./kayovim
-            ];
-            devPluginPaths = [
-              # This normally should be a absolute path
-              # here it'll only work from this directory
-              "~/dev/projects/kayovim/kayovim"
-            ];
-            plugins = lib.mkMerge [
-              [
-                {
-                  name = "jellybeans-nvim";
+            plugins = {
+              dev.kayovim = {
+                pure = ./kayovim;
+                impure = "~/dev/personal/kayovim/kayovim";
+              };
+              start = with pkgs.vimPlugins; [
+                lazydev-nvim
 
-                  src = pkgs.fetchFromGitHub {
-                    owner = "WTFox";
-                    repo = "jellybeans.nvim";
-                    rev = "66ff0d401a1ac14d70527f8a2f0d7ecc739ec245";
-                    hash = "sha256-NQc5ddFHe5Kw3FuKAEdkYzuvktK/Dnv0SXsWr1JeXXU=";
-                  };
+                mini-icons
+                mini-files
+                mini-pick
+                mini-statusline
+                mini-extra
 
-                  dependencies = [ ];
-                }
-              ]
-              (builtins.attrValues {
-                inherit (pkgs.vimPlugins.nvim-treesitter)
-                  withAllGrammars
-                  ;
-              })
-              (builtins.attrValues {
-                inherit (pkgs.vimPlugins)
-                  lazydev-nvim
+                blink-cmp
+                smear-cursor-nvim
 
-                  mini-icons
-                  mini-files
-                  mini-pick
-                  mini-statusline
-                  mini-extra
+                everforest
+                catppuccin-nvim
+                nvim-lspconfig
+                # nvim-treesitter
+                nvim-treesitter.withAllGrammars
+                nvim-treesitter-textobjects
+                vim-sleuth
 
-                  blink-cmp
-                  smear-cursor-nvim
-
-                  everforest
-                  catppuccin-nvim
-                  nvim-lspconfig
-                  nvim-treesitter
-                  nvim-treesitter-context
-                  nvim-treesitter-textobjects
-                  vim-sleuth
-
-                  efmls-configs-nvim
-                  ;
-              })
-            ];
+                efmls-configs-nvim
+              ];
+            };
+            # plugins = lib.mkMerge [
+            #   [
+            #     {
+            #       dev.kayovim = {
+            #         pure = ./kayovim;
+            #         impure = "~/dev/personal/kayovim/kayovim";
+            #       };
+            #     }
+            #   ]
+            #   (builtins.attrValues {
+            #     inherit (pkgs.vimPlugins.nvim-treesitter)
+            #       withAllGrammars
+            #       ;
+            #   })
+            #   (builtins.attrValues {
+            #     inherit (pkgs.vimPlugins)
+            #       lazydev-nvim
+            #
+            #       mini-icons
+            #       mini-files
+            #       mini-pick
+            #       mini-statusline
+            #       mini-extra
+            #
+            #       blink-cmp
+            #       smear-cursor-nvim
+            #
+            #       everforest
+            #       catppuccin-nvim
+            #       nvim-lspconfig
+            #       nvim-treesitter
+            #       nvim-treesitter-textobjects
+            #       vim-sleuth
+            #
+            #       efmls-configs-nvim
+            #       ;
+            #   })
+            # ];
             extraBinPath = builtins.attrValues {
               inherit (pkgs)
                 lua-language-server
