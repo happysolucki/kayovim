@@ -98,46 +98,18 @@
                 vim-sleuth
 
                 efmls-configs-nvim
+
+                (pkgs.vimUtils.buildVimPlugin {
+                  name = "flexoki";
+                  src = pkgs.fetchFromGitHub {
+                    owner = "kepano";
+                    repo = "flexoki-neovim";
+                    rev = "8899dab435d8c82329397ca224e63b129a21e1e6";
+                    hash = "sha256-rKJhvpXt044H2hDzReDvOD8IBw4O3LI8u6TzBFRa+LY=";
+                  };
+                })
               ];
             };
-            # plugins = lib.mkMerge [
-            #   [
-            #     {
-            #       dev.kayovim = {
-            #         pure = ./kayovim;
-            #         impure = "~/dev/personal/kayovim/kayovim";
-            #       };
-            #     }
-            #   ]
-            #   (builtins.attrValues {
-            #     inherit (pkgs.vimPlugins.nvim-treesitter)
-            #       withAllGrammars
-            #       ;
-            #   })
-            #   (builtins.attrValues {
-            #     inherit (pkgs.vimPlugins)
-            #       lazydev-nvim
-            #
-            #       mini-icons
-            #       mini-files
-            #       mini-pick
-            #       mini-statusline
-            #       mini-extra
-            #
-            #       blink-cmp
-            #       smear-cursor-nvim
-            #
-            #       everforest
-            #       catppuccin-nvim
-            #       nvim-lspconfig
-            #       nvim-treesitter
-            #       nvim-treesitter-textobjects
-            #       vim-sleuth
-            #
-            #       efmls-configs-nvim
-            #       ;
-            #   })
-            # ];
             extraBinPath = builtins.attrValues {
               inherit (pkgs)
                 lua-language-server

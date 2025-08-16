@@ -1,4 +1,4 @@
-vim.cmd.colorscheme 'catppuccin-macchiato'
+vim.cmd.colorscheme 'flexoki-dark'
 
 -- sync term/tmux border to colorscheme
 vim.api.nvim_create_autocmd({ 'UIEnter', 'ColorScheme' }, {
