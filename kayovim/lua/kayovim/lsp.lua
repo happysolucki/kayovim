@@ -37,7 +37,7 @@ vim.lsp.config('efm', {
 })
 
 vim.lsp.enable 'lua_ls'
-vim.lsp.enable 'eslint'
+-- vim.lsp.enable 'eslint'
 vim.lsp.enable 'efm'
 vim.lsp.enable 'nixd'
 vim.lsp.enable 'vtsls'
