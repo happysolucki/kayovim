@@ -55,3 +55,4 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     vim.lsp.buf.format { name = 'efm' }
   end,
 })
+

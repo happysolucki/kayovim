@@ -86,13 +86,14 @@
                 mini-statusline
                 mini-extra
 
+                fzf-lua
+
                 blink-cmp
                 smear-cursor-nvim
 
                 everforest
                 catppuccin-nvim
                 nvim-lspconfig
-                # nvim-treesitter
                 nvim-treesitter.withAllGrammars
                 nvim-treesitter-textobjects
                 vim-sleuth

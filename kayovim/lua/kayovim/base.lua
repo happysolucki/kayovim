@@ -48,6 +48,9 @@ end
 vim.keymap.set('n', '-', function()
   minifiles_toggle(vim.api.nvim_buf_get_name(0))
 end, { silent = true, desc = 'Open file explorer' })
-vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>', { silent = true, desc = 'Find files' })
-vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<cr>', { silent = true, desc = 'Grep' })
-vim.keymap.set('n', '<leader>f<', '<cmd>Pick resume<cr>', { silent = true, desc = 'Resume last search' })
+
+require('fzf-lua').setup { 'ivy' }
+
+vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<cr>', { silent = true, desc = 'Files' })
+vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua live_grep<cr>', { silent = true, desc = 'Grep' })
+vim.keymap.set('n', '<leader>f<', '<cmd>FzfLua resume<cr>', { silent = true, desc = 'Resume last search' })
