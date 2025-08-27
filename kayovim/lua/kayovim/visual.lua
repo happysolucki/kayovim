@@ -20,3 +20,5 @@
 -- })
 --
 -- require('smear_cursor').setup {}
+
+vim.cmd.colorscheme 'ansi'
