@@ -21,7 +21,6 @@ vim.o.hlsearch = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.o.termguicolors = true
 vim.o.showmode = false
 
 vim.o.clipboard = 'unnamedplus'
