@@ -114,13 +114,14 @@
             extraBinPath = builtins.attrValues {
               inherit (pkgs)
                 lua-language-server
-                vscode-langservers-extracted
+                # vscode-langservers-extracted
                 efm-langserver
                 stylua
                 nixfmt-rfc-style
                 nixd
                 statix
-                vtsls
+                # vtsls
+                typescript-language-server
 
                 fzf
                 ;
